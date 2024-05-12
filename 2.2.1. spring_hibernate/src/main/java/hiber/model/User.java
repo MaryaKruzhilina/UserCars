@@ -18,13 +18,17 @@ public class User {
 
    @Column(name = "email")
    private String email;
+   @OneToOne
+   @JoinColumn(name = "car_id")
+   private Car car;
 
    public User() {}
    
-   public User(String firstName, String lastName, String email) {
+   public User(String firstName, String lastName, String email, Car car) {
       this.firstName = firstName;
       this.lastName = lastName;
       this.email = email;
+      this.car = car;
    }
 
    public Long getId() {
